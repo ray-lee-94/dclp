@@ -18,12 +18,12 @@ Make sure you have [Conda](https://docs.conda.io/en/latest/miniconda.html) insta
 
 ### 1.1 **Create and activate the Conda environment:**
 
-    ```bash
-    conda create -n clp python=3.11 -y
-    conda activate clp
-    conda install pip -y
-    pip install -r requirements.txt
-    ```
+```bash
+conda create -n clp python=3.11 -y
+conda activate clp
+conda install pip -y
+pip install -r requirements.txt
+```
 
 
 
@@ -33,7 +33,6 @@ The main function is provided in dclp.py.
 
 ## 3. Tutorial
 Here's a tutorial on how to use the interface:
-
 ```python
 from dclp_tool import DCLP
 import glob
