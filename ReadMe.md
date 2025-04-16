@@ -5,9 +5,27 @@ this code contains the interface to diagnose CL (Cleft Lip) and CLP (Cleft Lip a
 
 ## 1. Environment
 To activate the environment, run the following command:
-```bash
-conda activate tc19
-```
+
+
+Make sure you have [Conda](https://docs.conda.io/en/latest/miniconda.html) installed before proceeding.
+
+### Python & Package Versions
+
+- **Python**: 3.11  
+- **PyTorch**: 1.12.0  
+- **ONNX Runtime**: 1.8.1  
+
+
+### 1.1 **Create and activate the Conda environment:**
+
+    ```bash
+    conda create -n clp python=3.11 -y
+    conda activate clp
+    conda install pip -y
+    pip install -r requirements.txt
+    ```
+
+
 
 ## 2. main inferface Function
 The main interface function is provided in dclp.py.
