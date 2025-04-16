@@ -1,4 +1,4 @@
-# Interface for the CLP
+# Codes and models for the AIOC paper 
 
 This code contains the interface to diagnose CL (Cleft Lip) and CLP (Cleft Lip and Palate) from normal conditions.
 
@@ -6,11 +6,11 @@ This code contains the interface to diagnose CL (Cleft Lip) and CLP (Cleft Lip a
 ## 1. Environment
 To activate the environment, run the following command:
 ```bash
-conda activate tc19
+conda activate xxx
 ```
 
-## 2. main inferface Function
-The main interface function is provided in dclp.py.
+## 2. Main function
+The main function is provided in dclp.py.
 
 
 ## 3. Tutorial
@@ -20,7 +20,7 @@ Here's a tutorial on how to use the interface:
 from dclp_tool import DCLP
 import glob
 dclp=DCLP() 
-p_images=glob.glob("/home/weki/clp/alfyyy-yc-bqx-24w/*.png")
+p_images=glob.glob("/path-to-the-images/*.png")
 
 result=dclp.detect_and_classify(p_images)
 print(result["Diagnosis"]) # the diagnosis information
@@ -31,29 +31,29 @@ The result is a dictionary that contains:
     A dictionary that indicates the diagnosis.
 
 -  "Support"
-     the classification results of all images
+     The classification results of all images.
 
 
 -  "Det_imgs"
-    - The images plotted with anatomy structures.
+    - The images are plotted with anatomical structures.
     - Normal anatomy is indicated with a green box.
     - Abnormal anatomy is indicated with a red box.
 
 
-## 4. clinical information
+## 4. Clinical information
 
-### 切面类型
+### Plane type
 
-| 中文名称       | 英文名称                        | 缩写  |
+| Chinese Name     | English Name                        | Abbreviation  |
 | -------------- | ------------------------------- | ----- |
 | 正常鼻唇冠状切面 | Normal Lip View                | NLV   |
 | 正常上牙槽切面 | Normal Alveolar and Palate View | NAPV  |
 | 异常鼻唇切面   | Cleft Lip View                  | CLV   |
 | 异常上牙槽切面 | Cleft Alveolar and Palate View  | CAPV  |
 
-### 解剖结构
+### Normal anatomical structures
 
-| 中文名称 | 英文名称   | 缩写 |
+| Chinese Name     | English Name                        | Abbreviation  |
 | -------- | ---------- | ---- |
 | 上唇     | Upper Lip  | UL   |
 | 鼻子     | Nose       | N    |
@@ -62,9 +62,9 @@ The result is a dictionary that contains:
 | 下巴     | Chin       | C    |
 | 牙槽     | Alveolus   | A    |
 
-### 异常解剖结构
+### Abnormal anatomical structures
 
-| 中文名称 | 英文名称     | 缩写 |
+| Chinese Name     | English Name                        | Abbreviation  |
 | -------- | ------------ | ---- |
 | 异常上唇 | Cleft Lip    | CL   |
 | 异常上牙槽 | Cleft Alveolus | CA   |
@@ -86,8 +86,8 @@ The result is a dictionary that contains:
 ### 2.  Here is the detailed mapping for normal and abnormal anatomy structures:
 
 
-### Normal Anatomy
-|Code|	Description|
+### Normal anatomy
+|ID|	Description|
 |---|---|
 |61|	Nostrils (No)|
 |62|	Upper lip (UL)|
@@ -96,22 +96,22 @@ The result is a dictionary that contains:
 |65|	Chin (C)|
 
 
-### Abnormal Anatomy
-|Code|	Description|
+### Abnormal anatomy
+|ID|	Description|
 |---|---|
 |163|	Cleft alveolar (CA)|
 |164|	Cleft lip (CL)|
 |166|	Cleft palate (CP)|
 |167|	CL_ROI|
 
-## 6. Double List
-This list contains codes that may appear more than once:
+## 6. Double list
+This list contains ID that may appear more than once:
 
 ```python
 double_list = [61]
 ```
 
-## 7. Diagnosis Logic
+## 7. Diagnosis logic
 The following code snippet demonstrates the logic used to determine the diagnosis based on the classification results:
 ```python
 def diagnose(cls_set, cls_list):
@@ -139,7 +139,7 @@ def diagnose(cls_set, cls_list):
     return p_result
 ```
 
-### Diagnosis Logic Table
+### Diagnosis logic table
 |Condition|	Diagnosis|
 |---|---|
 |exists_BC and exists_SYC| Valid input|
@@ -159,6 +159,6 @@ Valid input diagnosis
 
 
 
-## 8. Models Download
+## 8. Models download
 
 [google drive link](https://drive.google.com/drive/folders/1813fxUThopEOnOtaotjylm8zgK9S1ENE?usp=drive_link)
